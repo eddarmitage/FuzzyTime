@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.concurrent.TimeUnit;
 
 import static com.eddarmitage.time.FuzzyTimeCalculator.differenceBetween;
 
