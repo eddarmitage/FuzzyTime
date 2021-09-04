@@ -5,10 +5,11 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
+import java.util.List;
 
-public class FuzzyTimeCalculator {
+public final class FuzzyTimeCalculator {
 
-    private static final ArrayList<ChronoUnit> TIME_UNITS_DESCENDING_ORDER = new ArrayList<>();
+    private static final List<ChronoUnit> TIME_UNITS_DESCENDING_ORDER = new ArrayList<>();
 
     static {
         TIME_UNITS_DESCENDING_ORDER.add(ChronoUnit.MILLENNIA);
@@ -25,6 +26,11 @@ public class FuzzyTimeCalculator {
         TIME_UNITS_DESCENDING_ORDER.add(ChronoUnit.MICROS);
         TIME_UNITS_DESCENDING_ORDER.add(ChronoUnit.NANOS);
     }
+
+    private FuzzyTimeCalculator() {
+        throw new UnsupportedOperationException("Should not instantiate FuzzyTimeCalculator");
+    }
+
     public static FuzzyTime differenceBetween(Instant from, Instant to) {
         return fuzzify(Duration.between(from, to));
     }
