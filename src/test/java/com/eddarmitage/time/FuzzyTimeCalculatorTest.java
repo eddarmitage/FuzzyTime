@@ -16,7 +16,8 @@ class FuzzyTimeCalculatorTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/differenceBetweenSamples.csv", numLinesToSkip = 1)
-    void testDifferenceBetweenFunction(Instant from, Instant to, long expectedValue, ChronoUnit expectedUnit, SoftAssertions softly) {
+    void testDifferenceBetweenFunction(Instant from, Instant to, long expectedValue,
+                                       ChronoUnit expectedUnit, SoftAssertions softly) {
         FuzzyTime result = differenceBetween(from, to);
 
         softly.assertThat(result.getQuantity()).isEqualTo(expectedValue);

@@ -7,6 +7,9 @@ import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for calculating {@link FuzzyTime Fuzzy Times}.
+ */
 public final class FuzzyTimeCalculator {
 
     private static final List<ChronoUnit> TIME_UNITS_DESCENDING_ORDER = new ArrayList<>();
@@ -39,8 +42,14 @@ public final class FuzzyTimeCalculator {
         return differenceBetween(Instant.now(), to);
     }
 
+    /**
+     * Convert a {@link Duration} into a {@link FuzzyTime}.
+     *
+     * @param duration  The Duration to be converted
+     * @return a FuzzyTime equivalent of the {@code duration}
+     */
     public static FuzzyTime fuzzify(Duration duration) {
-        for (ChronoUnit unit: TIME_UNITS_DESCENDING_ORDER) {
+        for (ChronoUnit unit : TIME_UNITS_DESCENDING_ORDER) {
             if (shouldUseUnit(unit, duration)) {
                 return convert(duration, unit);
             }
