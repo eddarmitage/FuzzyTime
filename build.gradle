@@ -17,7 +17,7 @@ java {
 }
 
 checkstyle {
-    toolVersion '9.0'
+    toolVersion '10.26.1'
 }
 
 pmd {
